@@ -20,6 +20,7 @@ from Main.views import *
 from django.conf import settings
 from django.conf.urls.static import static 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
@@ -27,3 +28,6 @@ urlpatterns = [
     path('patient/<str:patient_id>/', PatientFile, name='PatientFile'),  # FIXED: Removed duplicate incorrect route
     path('patient/<str:patient_id>/download_pdf/', download_patient_pdf, name='download_patient_pdf'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

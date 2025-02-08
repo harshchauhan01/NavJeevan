@@ -7,11 +7,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
 </head>
 <body>
     {% block content %}
+        <div class="reasons">
+           <div class="container1">
+            <h1 class="why">Why Choose us?</h1>
+            <div class="text-content">
+                <p>Choose us for reliable, efficient, and patient-focused healthcare services. Our dedicated team of professionals is committed to providing personalized care in a comfortable environment. We leverage advanced technology and state-of-the-art facilities to ensure the highest quality of treatment, helping you achieve optimal health with compassion and expertise.</p>
+            </div>
+            <div class="grid-container">
+                <div class="grid-item"><h3>Expert Guidance</h3></div>
+                <div class="grid-item"><h3>Exclusive Resources</h3></div>
+                <div class="grid-item"><h3>Networking Opportunities</h3></div>
+                <div class="grid-item"><h3>Personalized Support</h3></div>
+            </div>
+           </div>
+           <div class="container2">
+                <div class="photohai">
+                    <img src="{%static '\images\photo4.jpg'%}" alt="">
+                </div>
+           </div>
+        </div>
+        <div class="counter">
+            <div class="components"><h3>Connected Hospitals</h3><br><div id="comp1"></div></div>
+            <div class="components"><h3>Happy cutomers</h3><br><div id="comp2"></div></div>
+            <div class="components"><h3>Current user</h3><br><div id="comp3"></div></div>
+        </div>
     
-    {% endblock %}
 </body>
+<script>
+    function liveCounter1(n) {
+        const counterDiv1 = document.getElementById('comp1');
+        let current = 1;
+    
+        const interval = setInterval(() => {
+            counterDiv1.textContent = current;
+            if (current === n) {
+                clearInterval(interval);
+            }
+            current++;
+        }, 10);
+    }
+    function liveCounter2(n) {
+        const counterDiv1 = document.getElementById('comp2');
+        let current = 1;
+    
+        const interval = setInterval(() => {
+            counterDiv1.textContent = current;
+            if (current === n) {
+                clearInterval(interval);
+                counterDiv1.textContent = "200⁺";
+            }
+            current++;
+        }, 10);
+    }
+    function liveCounter3(n) {
+        const counterDiv1 = document.getElementById('comp3');
+        let current = 1;
+    
+        const interval = setInterval(() => {
+            counterDiv1.textContent = current;
+            if (current === n) {
+                clearInterval(interval);
+            }
+            current++;
+        }, 10);
+    }
+    liveCounter1(60);
+    liveCounter2(200);
+    liveCounter3(100);
+</script>
+{% endblock %}
 </html>
