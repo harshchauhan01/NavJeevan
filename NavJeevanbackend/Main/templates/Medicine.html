@@ -1,79 +1,170 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Medicine | NavJeevan{% endblock %}
+{% block title %}Blood Group | NavJeevan{% endblock %}
+{% block content %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static '\css\bloodgroup.css' %}">
+    <style>
+        .cssbuttons-io-button {
+        display: flex;
+        align-items: center;
+        font-family: inherit;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 16px;
+        padding: 0.7em 1.4em 0.7em 1.1em;
+        color: white;
+        background: #ad5389;
+        background: linear-gradient(
+            0deg,
+            rgb(22, 183, 183) 0%,
+            rgb(102, 223, 247) 100%
+        );
+        border: none;
+        box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+        letter-spacing: 0.05em;
+        border-radius: 20em;
+        text-decoration: none;
+        }
 
+        .cssbuttons-io-button svg {
+        margin-right: 6px;
+        }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block content %}
-</head>
-<body>
-    <div id = "heading" style="display: flex;">
-        <h2 class="text-center fw-bold p-3 bg-dark text-white rounded" id="HED">
-            <img src="donorf.png" alt="#" style="height: 3rem;">
-             Blood group Inventory & Donor Availability
-            
-        </h2>
+        .cssbuttons-io-button:hover {
+        box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+        }
+
+        .cssbuttons-io-button:active {
+        box-shadow: 0 0.3em 1em -0.5em #14a73e98;
+        }
+
+        .addPatient{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+            padding-left: 70px;
+            padding-right: 80px;
+            padding-bottom: 20px;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+          }
+          
+          .search__input {
+            font-family: inherit;
+            font-size: inherit;
+            background-color: #f4f2f2;
+            border: none;
+            color: #646464;
+            padding: 0.7rem 1rem;
+            border-radius: 30px;
+            width: 12em;
+            transition: all ease-in-out .5s;
+            margin-right: -2rem;
+          }
+          
+          .search__input:hover, .search__input:focus {
+            box-shadow: 0 0 1em #00000013;
+          }
+          
+          .search__input:focus {
+            outline: none;
+            background-color: #f0eeee;
+          }
+          
+          .search__input::-webkit-input-placeholder {
+            font-weight: 100;
+            color: #ccc;
+          }
+          
+          .search__input:focus + .search__button {
+            background-color: #f0eeee;
+          }
+          
+          .search__button {
+            border: none;
+            background-color: #f4f2f2;
+            margin-top: .1em;
+          }
+          
+          .search__button:hover {
+            cursor: pointer;
+          }
+          
+          .search__icon {
+            height: 1.3em;
+            width: 1.3em;
+            fill: #b4b4b4;
+          }
+        
+        
           
 
-        <input type="text" placeholder="Search Blood group" id="Input">
+    </style>
+
+    <div id="heading" style="display: flex; justify-content: space-evenly; align-items: center; padding: 20px;">
+        <h2 class="text-center fw-bold p-3 bg-dark text-white rounded" id="HED">
+            <i class="fa-solid fa-house-medical"></i>
+            Medicines Availability</h2>
+            <div class="addPatient">
+                <div class="Searchh">
+                    <form method="GET" action="{% url 'CheckRecord' %}">
+                        
+                        <div class="search">
+                            <input type="text" class="search__input" placeholder="Enter Patient ID" id="'search" value="{{ query }}">
+                            <button class="search__button" type="submit">
+                                <svg class="search__icon" aria-hidden="true" viewBox="0 0 24 24">
+                                    <g>
+                                        <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+                                    </g>
+                                </svg>
+                            </button>
+                        </div>
+                        
+                    </form>
+                </div>
+                <a class="cssbuttons-io-button" href="{% url 'patientrecord' %}">
+                    <svg
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    >
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="currentColor"></path>
+                    </svg>
+                    <span>Add</span>
+                </a>
+                
+            </div>
     </div>
+
+
     <table class="table table-bordered table-striped" id="Table1">
         <thead class="table-dark">
             <tr>
-            <th>Organ</th>
+                <th>Medicine</th>
+                <th>Category</th>
                 <th>Availability</th>
-                <th>More Donors Available</th>
             </tr>
         </thead>
         <tbody>
-            <tr class="table-primary">
-                <td>A+</td>
-                <td>50</td>
-                <td>Yes</td>
+            {% for Medicine in Medicines %}
+            <tr class="{% if Medicine.medicine_Avail|add:0 > 100 %}table-primary{% elif Medicine.medicine_Avail|add:0 > 30 %}table-warning{% else %}table-danger{% endif %}">
+                <td>{{ Medicine.medicine_name }}</td>
+                <td>{{ Medicine.medicine_category }}</td>
+                <td>{{ Medicine.medicine_Avail }}</td>
             </tr>
-            <tr class="table-primary">
-                <td>B+</td>
-                <td>12</td>
-                <td>Yes</td>
-            </tr>
-            <tr class="table-primary">
-                <td>AB+</td>
-                <td>150</td>
-                <td>Yes</td>
-            </tr>
-            <tr class="table-warning">
-                <td>A-</td>
-                <td>5</td>
-                <td>No</td>
-            </tr>
-            <tr class="table-warning">
-                <td>O+</td>
-                <td>6</td>
-                <td>No</td>
-            </tr>
-            <tr class="table-danger">
-                <td>B-</td>
-                <td>4</td>
-                <td>No</td>
-            </tr>
-            <tr class="table-danger">
-                <td>Ab-</td>
-                <td>2</td>
-                <td>Yes</td>
-            </tr>
-            <tr class="table-danger">
-                <td>O-</td>
-                <td>3</td>
-                <td>No</td>
-            </tr>
-
-
+        {% endfor %}
         </tbody>
     </table>
-    {% endblock %}
-</body>
-</html>
+
+{% endblock %}

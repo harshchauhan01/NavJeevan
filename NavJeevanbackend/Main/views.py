@@ -83,11 +83,13 @@ def checkResource(request):
     return render(request, 'checkResource.html')
 
 def BloodTable(request):
-    return render(request, 'bloodGroupTable.html')
+    blood = Blood.objects.all()
+    return render(request, 'bloodGroupTable.html', {'bloods': blood})
 
 def organTable(request):
     organs = Organ.objects.all()
     return render(request, 'OrganTable.html', {'organs': organs})
 
-def Medicine(request):
-    return render(request, 'Medicine.html')
+def MedicineTable(request):
+    medicine = Medicine.objects.all()
+    return render(request, 'Medicine.html',{'Medicines':medicine})

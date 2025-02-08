@@ -43,6 +43,7 @@ class Patent(models.Model):
 
 class Medicine(models.Model):
     medicine_name = models.CharField(max_length=200)
+    medicine_category = models.CharField(max_length=200)
     medicine_Avail = models.CharField(max_length=200)
     def __str__(self):
         return self.medicine_name

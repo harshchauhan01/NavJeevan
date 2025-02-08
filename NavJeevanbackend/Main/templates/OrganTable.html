@@ -24,7 +24,7 @@
     </thead>
     <tbody>
         {% for organ in organs %}
-        <tr class="{% if organ.organ_Avail > 5 %}table-primary{% elif organ.organ_Avail > 2 %}table-warning{% else %}table-danger{% endif %}">
+        <tr class="{% if organ.organ_Avail|add:0 > 5 %}table-primary{% elif organ.organ_Avail|add:0 > 2 %}table-warning{% else %}table-danger{% endif %}">
             <td>{{ organ.organ_name }}</td>
             <td>{{ organ.organ_Avail }}</td>
             <td>{{ organ.organ_donars }}</td>
