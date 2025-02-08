@@ -157,3 +157,21 @@ def billing(request):
 
     return render(request, "Bill.html", {"form": form})
 
+def download_patient_bill_pdf(request, patient_id):
+    patient = get_object_or_404(Patent, patent_id=patient_id)
+    doctor = patient.patent_doctor
+    media_url = request.build_absolute_uri(settings.MEDIA_URL)
+    prescription = get_object_or_404(Prescription, patient_id=patient_id)
+    filename = f"patient_{patient_id}_{prescription.billing_date}.pdf"
+
+    html = render_to_string('patbill.html', {'patient': patient,
+        'doctor': doctor,
+        'prescription': prescription,
+        'media_url': media_url})
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="{filename}"'
+
+    if pisa.CreatePDF(html, dest=response).err:
+        return HttpResponse("Error generating PDF", status=500)
+    
+    return response

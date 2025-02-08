@@ -36,7 +36,7 @@ nav .logo img {
 }
 
 nav .navFst .navbar {
-    width: 300px;
+    width: 500px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
