@@ -2,16 +2,241 @@
 {% load static %}
 {% block title %}Home | NavJeevan{% endblock %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <style>
+    .contactButton {
+    background: rgb(88, 165, 242);
+    color: white;
+    font-family: inherit;
+    padding: 0.45em;
+    padding-left: 1.0em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: none;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 0 1.6em -0.6em #4d97a6;
+    overflow: hidden;
+    position: relative;
+    height: 2.8em;
+    padding-right: 3em;
+    }
+
+    .iconButton {
+    margin-left: 1em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 0.7em;
+    box-shadow: 0.1em 0.1em 0.6em 0.2em #7a8cf3;
+    right: 0.3em;
+    transition: all 0.3s;
+    }
+
+    .contactButton:hover {
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 0.15em 0.15em #5566c2;
+    }
+
+    .contactButton:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em #5566c2;
+    } 
+.form {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
+  width: 500px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 30px 30px -30px rgba(27, 26, 26, 0.315);
+}
+
+.form .title {
+    width: 100%;
+  color: royalblue;
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.form input {
+  outline: 0;
+  border: 1px solid rgb(219, 213, 213);
+  padding: 8px 14px;
+  border-radius: 8px;
+  width: 100%;
+  height: 50px;
+}
+
+.form textarea {
+  border-radius: 8px;
+  height: 200px;
+  width: 100%;
+  resize: none;
+  outline: 0;
+  padding: 8px 14px;
+  border: 1px solid rgb(219, 213, 213);
+}
+
+.form button {
+  align-self: flex-end;
+  padding: 8px;
+  outline: 0;
+  border: 0;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: royalblue;
+  color: #fff;
+  cursor: pointer;
+}
+
+.form-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 50px 0 ;
+}
+
+
+
+
+    </style>
+
     
-</head>
-<body>
-    {% block content %}
+    <div class="body">
+        <div class="head">
+            <h1>Welcome To The NAVJEEVAN</h1>
+            <h2>We Will Provide the best services to your Hospitals</h2>
+            <h2>Your time is valuable to us</h2>
+            <button class="contactButton"> Join Now
+                <div class="iconButton">
+                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+                </div>
+            </button>
+        </div>
+    </div>
+        <div class="reasons">
+           <div class="container1">
+                <h1 class="why">Why Choose us?</h1>
+                <div class="text-content">
+                    <p>Choose us for reliable, efficient, and patient-focused healthcare services. Our dedicated team of professionals is committed to providing personalized care in a comfortable environment. We leverage advanced technology and state-of-the-art facilities to ensure the highest quality of treatment, helping you achieve optimal health with compassion and expertise.</p>
+                </div>
+                
+           </div>
+           <div class="container2">
+                <div class="photohai">
+                    <img src="{%static '\images\photo4.jpg'%}" alt="">
+                </div>
+           </div>
+        </div>
+        <div class="counter">
+            <div class="components"><h3>Connected Hospitals</h3><br><div id="comp1"></div></div>
+            <div class="components"><h3>Happy cutomers</h3><br><div id="comp2"></div></div>
+            <div class="components"><h3>Current user</h3><br><div id="comp3"></div></div>
+        </div>
+        <div class="contact">
+            <div class="form-container">
+                
+                <form class="form" method="POST" action="https://api.web3forms.com/submit">
+                    <input type="hidden" name="access_key" value="d2d4ee29-d0a2-4372-85b4-255983d677f8">
+                    <div class="title">Contact us</div>
+                    
+                    <input type="email" name="email" placeholder="Your email" required>
+                    <textarea name="message" placeholder="Your message" required></textarea>
+                
+                    <button type="submit">Submit</button>
+                    
+                    <!-- Success Message -->
+                    <p id="success-message" style="display:none; color: green;">Your message has been sent successfully!</p>
+                </form>
+                
+                <script>
+                    document.querySelector(".form").addEventListener("submit", function (e) {
+                        e.preventDefault(); // Prevent default form submission
+                        let form = e.target;
+                        let formData = new FormData(form);
+                
+                        fetch("https://api.web3forms.com/submit", {
+                            method: "POST",
+                            body: formData
+                        })
+                        .then(response => response.json())
+                        .then(result => {
+                            if (result.success) {
+                                document.getElementById("success-message").style.display = "block";
+                                form.reset(); // Clear the form after submission
+                            } else {
+                                alert("Something went wrong. Please try again.");
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Error:", error);
+                            alert("Error submitting the form.");
+                        });
+                    });
+                </script>
+                
+            </div>
+        </div>
     
-    {% endblock %}
 </body>
-</html>
+<script>
+    function liveCounter1(n) {
+        const counterDiv1 = document.getElementById('comp1');
+        let current = 1;
+    
+        const interval = setInterval(() => {
+            counterDiv1.textContent = current;
+            if (current === n) {
+                clearInterval(interval);
+            }
+            current++;
+        }, 10);
+    }
+    function liveCounter2(n) {
+        const counterDiv1 = document.getElementById('comp2');
+        let current = 1;
+    
+        const interval = setInterval(() => {
+            counterDiv1.textContent = current;
+            if (current === n) {
+                clearInterval(interval);
+                counterDiv1.textContent = "200⁺";
+            }
+            current++;
+        }, 10);
+    }
+    function liveCounter3(n) {
+        const counterDiv1 = document.getElementById('comp3');
+        let current = 1;
+    
+        const interval = setInterval(() => {
+            counterDiv1.textContent = current;
+            if (current === n) {
+                clearInterval(interval);
+            }
+            current++;
+        }, 10);
+    }
+    liveCounter1(60);
+    liveCounter2(200);
+    liveCounter3(100);
+</script>
+{% endblock %}

@@ -33,4 +33,7 @@ urlpatterns = [
     path('Medicine/', MedicineTable, name='Medicine'),
     path('organTable/', organTable, name='organTable'),
     path('BloodTable/', BloodTable, name='BloodTable'),
+    path('AddMedicine/', AddMedicine, name='AddMedicine'),
+    path('AddBloodGroup/', AddBlood, name='AddBloodGroup'),
+    path('AddOrgan/', AddOrgan, name='AddOrgan'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

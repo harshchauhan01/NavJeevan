@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from xhtml2pdf import pisa
 from .models import *
-from .forms import PatentForm
+from .forms import *
 
 @login_required
 def home(request):
@@ -93,3 +93,42 @@ def organTable(request):
 def MedicineTable(request):
     medicine = Medicine.objects.all()
     return render(request, 'Medicine.html',{'Medicines':medicine})
+
+def AddMedicine(request):
+    if request.method == 'POST':
+        form = MedForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Medicine record added successfully!")
+            return redirect('AddMedicine')
+        else:
+            messages.error(request, "Form submission failed. Please check the input fields.")
+    else:
+        form = MedForm()
+    return render(request, 'AddMedicine.html', {'form': form})
+
+def AddBlood(request):
+    if request.method == 'POST':
+        form = BloodForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Blood record added successfully!")
+            return redirect('AddBloodGroup')
+        else:
+            messages.error(request, "Form submission failed. Please check the input fields.")
+    else:
+        form = BloodForm()
+    return render(request, 'AddBloodGroup.html', {'form': form})
+
+def AddOrgan(request):
+    if request.method == 'POST':
+        form = OrganForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Organ record added successfully!")
+            return redirect('AddOrgan')
+        else:
+            messages.error(request, "Form submission failed. Please check the input fields.")
+    else:
+        form = OrganForm()
+    return render(request, 'AddOrgan.html', {'form': form})
