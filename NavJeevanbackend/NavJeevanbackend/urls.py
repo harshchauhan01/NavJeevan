@@ -24,6 +24,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('patientrecord/', patientrecord, name='patientrecord'),
-    path('patient/<str:patient_id>/', PatientFile, name='PatientFile'),  # FIXED: Removed duplicate incorrect route
+    path('patient/<str:patient_id>/', PatientFile, name='PatientFile'),
     path('patient/<str:patient_id>/download_pdf/', download_patient_pdf, name='download_patient_pdf'),
+    path('CheckRecord/', CheckRecord, name='CheckRecord'),
+    path('login/', Login, name='login'),
+    path('logout/', user_logout, name='logout'),
+    path('checkResource/', checkResource, name='checkResource'),
+    path('Medicine/', Medicine, name='Medicine'),
+    path('organTable/', organTable, name='organTable'),
+    path('BloodTable/', BloodTable, name='BloodTable'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

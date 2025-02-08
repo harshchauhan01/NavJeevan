@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Organs | NavJeevan{% endblock %}
+
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/organ.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<div id="heading" style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
+    <h2 class="text-center fw-bold p-3 bg-dark text-white rounded" id="HED">
+        <i class="fa-solid fa-lungs"></i>
+        Human Organ Inventory & Donor Availability</h2>
+    <input type="text" placeholder="Search Organs" id="Input" class="form-control" style="width: 250px;">
+</div>
+
+<table class="table table-bordered table-striped" id="Table1">
+    <thead class="table-dark">
+        <tr>
+            <th>Organ</th>
+            <th>Availability</th>
+            <th>More Donors Available</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for organ in organs %}
+        <tr class="{% if organ.organ_Avail > 5 %}table-primary{% elif organ.organ_Avail > 2 %}table-warning{% else %}table-danger{% endif %}">
+            <td>{{ organ.organ_name }}</td>
+            <td>{{ organ.organ_Avail }}</td>
+            <td>{{ organ.organ_donars }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script>
+    document.getElementById("Input").addEventListener("keyup", function () {
+        let filter = this.value.toUpperCase();
+        let rows = document.querySelectorAll("#Table1 tbody tr");
+        rows.forEach(row => {
+            let organ = row.cells[0].textContent.toUpperCase();
+            row.style.display = organ.indexOf(filter) > -1 ? "" : "none";
+        });
+    });
+</script>
+{% endblock %}

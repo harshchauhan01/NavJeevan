@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login | NavJeevan{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block content %}
+    <link rel="stylesheet" href="{% static '\css\login.css' %}">
+</head>
+<body>
+    
+    
+    <div class="outer">
+        <div class="content">
+            <img src="{%static '\images\banner.svg'%}" alt="" width="600" >
+        </div>
+        <div class="Select">
+            <div class="Champa">
+                <h1 id="Navjee" style="text-align: center;">Welcome To <span style="color: #6c63ff;">NavJeevan</span> <br>Hospital Management System</h1>
+                
+            </div>
+            <div class="container">
+                <div class="heading">SIGN IN</div>
+                <form class="form" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="input-container">
+                        <input type="text" class="input" name="username" placeholder="Hospital-Id">
+                    </div>
+
+                    <input required="" class="input" type="password" name="password" id="password" placeholder="Password" style="border-top-right-radius:6px ;">
+                    <span class="forgot-password"><a href="#">Forgot Password ?</a></span>
+                    <input class="login-button" type="submit" value="Sign In">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <script>
+                alert("{{ message }}");
+            </script>
+            <!-- <div class="alert alert-{{ message.tags }}">{{ message }}</div> -->
+        {% endfor %}
+    {% endif %}
+    
+    {% endblock %}
+</body>
+</html>

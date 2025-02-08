@@ -8,17 +8,22 @@ nav {
     display: flex;
     background-color: #d6fafa;
 }
+nav .logo{
+  margin-bottom: 15px;
+}
 
 nav .navdiv {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 5px 30px;
+    margin: 0px 30px;
 }
 
 nav .navdiv .navFst {
     display: flex;
+    align-items: center;
+    margin-top: 10px;
 }
 
 nav .navdiv .logo {
