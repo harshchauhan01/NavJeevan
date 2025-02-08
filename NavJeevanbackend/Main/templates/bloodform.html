@@ -8,12 +8,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block content %}
-    <link rel="stylesheet" href="medicineform.css">
+    <link rel="stylesheet" href="bloodform.css">
 </head>
 <body>
     
     <div class="container">
-        <h1>Enter Medicine Details</h1>
+        <h1>Enter Blood Details</h1>
 
         
         {% if messages %}
@@ -29,25 +29,22 @@
             
 
             <div class="form-group">
-                <label for="patent_id">Medicine Name:</label>
+                <label for="patent_id">Blood Group Name:</label>
                 <input type="text" id="patent_id" name="patent_id" required>
             </div>
 
             <div class="form-group">
                 <label for="bed_allotted">Category</label>
                 <select id="bed_allotted" name="bed_allotted" required>
-                    <option value="no">Antipyretic</option>
-                    <option value="yes">Antibiotic</option>
-                    <option value="no">Pain-reliever</option>
-                    <option value="yes">Antihistamine</option>
-                    <option value="no">Antacid</option>
-                    <option value="yes">Gastrointestinal</option>
-                    <option value="no">Diabetes-medication</option>
-                    <option value="yes">Blood-Pressure-Meds</option>
-                    <option value="no">Cholesterol-meds</option>
-                    <option value="yes">Antifungal</option>
-                    <option value="no">Antiviral</option>
-                    <option value="yes">Cardiovascular</option>
+                    <option value="no">A+</option>
+                    <option value="yes">B+</option>
+                    <option value="no">O+</option>
+                    <option value="yes">AB+</option>
+                    <option value="no">O-</option>
+                    <option value="yes">A-</option>
+                    <option value="no">AB-</option>
+                    <option value="yes">A</option>
+                    
                    
                 </select>
             </div>
@@ -66,13 +63,13 @@
             </div>
 
             <div class="form-group">
-                <label for="patent_status">Quantity</label>
+                <label for="patent_status">Quantity(Units)</label>
                 <select id="patent_status" name="patent_status" required>
-                    <option value="Not Discharged">0-100</option>
-                    <option value="Discharged">100-199</option>
-                    <option value="Discharged">200-299</option>
-                    <option value="Discharged">300-399</option>
-                    <option value="Discharged">400-499</option>
+                    <option value="Not Discharged">0-10</option>
+                    <option value="Discharged">11-20</option>
+                    <option value="Discharged">21-30</option>
+                    <option value="Discharged">31-40</option>
+                    <option value="Discharged">41-50</option>
                 </select>
             </div>
 
@@ -82,7 +79,7 @@
 
 
             <div class="form-group">
-                <button type="submit">Add Medicine Detail</button>
+                <button type="submit">Add Blood Detail</button>
             </div>
 
         </form>

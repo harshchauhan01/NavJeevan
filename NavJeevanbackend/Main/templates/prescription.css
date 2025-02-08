@@ -1,0 +1,91 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+.Logo{
+    width: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+.Name{
+    display: flex;
+}
+.Name h3{
+    padding-top: 1.45rem;
+    padding-left: 0.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 1000;
+    font-size: 1.8rem;
+}
+.Logo img{
+    height: 7.5rem;
+}
+.Table1{
+    width: 10%;
+    margin-bottom: 2rem;
+}
+.Table2{
+    margin-top: 2rem
+    
+}
+.Total{
+    width: 10%;
+}
+.Date{
+    width: 59rem;
+    margin-left: 45rem;
+    margin-top: 3rem;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 0.5rem;
+
+
+}
+.line{
+    width: 100%;
+    height: 0.1rem;
+    border: 2px solid black;
+}
+.Patient{
+    display: flex;
+
+}
+#Phys {
+    border: 2px solid black;
+    border-collapse: collapse; /* Ensures no double borders */
+    width: 100%; /* Ensures table takes full width */
+}
+
+#Phys th, #Phys td {
+    border: 2px solid black;
+    padding: 10px; /* Adds spacing inside cells */
+    text-align: center; /* Centers text for better alignment */
+    width: calc(100% / 3); /* Ensures equal column width */
+}
+
+#Phys td{
+    height: 2rem;
+}
+.Table1{
+    width: 100%;
+}
+#Phys1 {
+
+    border: 2px solid black;
+    border-collapse: collapse; /* Ensures no double borders */
+    width: 100%; /* Ensures table takes full width */
+}
+
+#Phys1 th, #Phys1 td {
+    border: 2px solid black;
+    padding: 10px; /* Adds spacing inside cells */
+    text-align: center; /* Centers text for better alignment */
+    width: calc(100% / 7); /* Ensures equal column width */
+}
+
+#Phys1 td{
+    height: 2rem;
+}
+.Table2{
+    margin-top: 2rem;
+    width: 100%;
+}
+

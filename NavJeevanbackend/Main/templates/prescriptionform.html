@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prescription Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="prescriptionform.css" />
+
+</head>
+<body>
+  <div class="form-container">
+    <form class="form">
+      <h2 class="form-title">
+        <i class="fa-solid fa-clipboard"></i>
+        Prescription Form</h2>
+
+    
+      <div class="name-row">
+        <div class="form-group">
+          <label for="fname" class="form-label">First Name:</label>
+          <input type="text" id="fname" name="fname" class="form-input" placeholder="Enter first name" required />
+        </div>
+        <div class="form-group">
+          <label for="lname" class="form-label">Last Name:</label>
+          <input type="text" id="lname" name="lname" class="form-input" placeholder="Enter last name" required />
+        </div>
+      </div>
+
+     
+      <div class="form-group">
+        <label for="pid" class="form-label">Patient ID:</label>
+        <input type="text" id="pid" name="pid" class="form-input" placeholder="Enter patient ID" required />
+      </div>
+
+      <div class="medicine-section">
+        <h3 class="section-title">Medicine Details</h3>
+        <div id="medicine-fields">
+         
+          <div class="medicine-row">
+            <div class="form-group">
+              <label for="medicine1" class="form-label">Medicine Name:</label>
+              <input type="text" id="medicine1" name="medicine1" class="form-input" placeholder="Enter medicine name" required />
+            </div>
+            <div class="form-group">
+              <label for="frequency1" class="form-label">Frequency:</label>
+              <input type="text" id="frequency1" name="frequency1" class="form-input" placeholder="Enter time (e.g., 2 times a day)" required />
+            </div>
+          </div>
+        </div>
+        <!-- Button to Add More Medicine Fields -->
+        <button type="button" id="add-medicine" class="add-btn">Add Medicine</button>
+      </div>
+
+      <!-- Total Fee -->
+      <div class="form-group">
+        <label for="totalfee" class="form-label">Total Fee:</label>
+        <input type="number" id="totalfee" name="totalfee" class="form-input" placeholder="Enter total fee" required />
+      </div>
+
+      <!-- Co-pay -->
+      <div class="form-group">
+        <label for="copay" class="form-label">Co-pay:</label>
+        <input type="number" id="copay" name="copay" class="form-input" placeholder="Enter co-pay" required />
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+
+  <script>
+   
+    document.getElementById('add-medicine').addEventListener('click', function () {
+      const medicineFields = document.getElementById('medicine-fields');
+      const medicineCount = medicineFields.children.length + 1;
+
+      const newMedicineRow = document.createElement('div');
+      newMedicineRow.className = 'medicine-row';
+
+      newMedicineRow.innerHTML = `
+        <div class="form-group">
+          <label for="medicine${medicineCount}" class="form-label">Medicine Name:</label>
+          <input type="text" id="medicine${medicineCount}" name="medicine${medicineCount}" class="form-input" placeholder="Enter medicine name" required />
+        </div>
+        <div class="form-group">
+          <label for="frequency${medicineCount}" class="form-label">Frequency:</label>
+          <input type="text" id="frequency${medicineCount}" name="frequency${medicineCount}" class="form-input" placeholder="Enter frequency (e.g., 2 times a day)" required />
+        </div>
+      `;
+
+      medicineFields.appendChild(newMedicineRow);
+    });
+  </script>
+</body>
+</html>

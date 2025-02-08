@@ -1,0 +1,146 @@
+/* Body and Background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url(Finalbg.jpeg) center/cover no-repeat fixed; /* Background image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Main form container */
+  .form-container {
+    /* background: rgba(255, 255, 255, 0.95); Slightly transparent white */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 600px;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  /* Fade in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* General form styling */
+  .form {
+    width: 100%;
+  }
+  
+  .form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+  .form-label {
+    display: block;
+    margin-top: 2rem;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-input:focus,
+  .form-textarea:focus {
+    border-color: #28a745;
+    outline: none;
+  }
+  
+  /* First and Last Name row */
+  .name-row {
+    display: flex;
+    gap: 35px;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .name-row .form-group {
+    flex: 1;
+  }
+  
+  /* Medicine Details Section */
+  .medicine-section {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .section-title {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .medicine-row {
+    display: flex;
+    gap: 35px;
+    margin-bottom: 15px;
+  }
+  
+  .medicine-row .form-group {
+    flex: 1;
+  }
+  
+  /* Add Medicine Button */
+  .add-btn {
+    background: #007bff;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .add-btn:hover {
+    background: #0056b3;
+  }
+  
+  /* Submit Button */
+  .submit-btn {
+    background:#007bff;
+    color: white;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .submit-btn:hover {
+    background: linear-gradient(45deg, #218838, #1e7e34);
+    transform: scale(1.05);
+  }
