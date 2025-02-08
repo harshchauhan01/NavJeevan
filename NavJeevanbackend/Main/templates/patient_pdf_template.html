@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Report</title>
+    <style>
+        html, body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        img {
+            max-width: 150px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Patient Report</h2>
+    
+    <table>
+        <tr>
+            <th>Patient ID:</th>
+            <td>{{ patient.patent_id }}</td>
+        </tr>
+        {% if patient.photo %}
+        <tr>
+            <th>Patient Photo:</th>
+            <td><img src="{{ media_url }}{{ patient.photo }}" alt="Patient Photo" width="130"></td>
+        </tr>
+        {% endif %}
+        <tr>
+            <th>Patient Name:</th>
+            <td>{{ patient.patent_title }}</td>
+        </tr>
+        <tr>
+            <th>Age:</th>
+            <td>{{ patient.patent_age }}</td>
+        </tr>
+        <tr>
+            <th>Gender:</th>
+            <td>{{ patient.patent_gender }}</td>
+        </tr>
+        <tr>
+            <th>Reason Of Visit:</th>
+            <td>{{ patient.inventor_name }}</td>
+        </tr>
+        <tr>
+            <th>Phone Number:</th>
+            <td>{{ patient.patent_number }}</td>
+        </tr>
+        <tr>
+            <th>Address:</th>
+            <td>{{ patient.address }}</td>
+        </tr>
+        <tr>
+            <th>Form Fill Date:</th>
+            <td>{{ patient.filing_date }}</td>
+        </tr>
+        <tr>
+            <th>Bed Allotted:</th>
+            <td>{{ patient.bed_allotted }}</td>
+        </tr>
+        <tr>
+            <th>Bed/Room Number:</th>
+            <td>{{ patient.bed_number }}</td>
+        </tr>
+        <tr>
+            <th>ICU:</th>
+            <td>{{ patient.icu }}</td>
+        </tr>
+        <tr>
+            <th>Status:</th>
+            <td>{{ patient.patent_status }}</td>
+        </tr>
+        {% if patient.billing_date %}
+        <tr>
+            <th>Billing Date:</th>
+            <td>{{ patient.billing_date }}</td>
+        </tr>
+        {% endif %}
+        <tr>
+            <th>Doctor Name:</th>
+            <td>{{ patient.patent_doctor }}</td>
+        </tr>
+        {% if doctor %}
+        <tr>
+            <th>Doctor Sign:</th>
+            <!-- <td>{{ patient.doctor.doctor_sign_photo }}</td> -->
+            <td><img src="{{ media_url }}{{ patient.doctor.doctor_sign_photo }}" alt="Doctor Photo" width="120"></td>
+        </tr>
+        {% endif %}
+
+
+    </table>
+
+</body>
+</html>
