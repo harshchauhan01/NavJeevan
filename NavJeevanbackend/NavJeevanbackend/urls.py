@@ -36,4 +36,5 @@ urlpatterns = [
     path('AddMedicine/', AddMedicine, name='AddMedicine'),
     path('AddBloodGroup/', AddBlood, name='AddBloodGroup'),
     path('AddOrgan/', AddOrgan, name='AddOrgan'),
+    path("billing/", billing, name="billing"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

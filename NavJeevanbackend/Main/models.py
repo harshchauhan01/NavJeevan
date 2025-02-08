@@ -61,3 +61,15 @@ class Blood(models.Model):
     blood_donars = models.CharField(max_length=200)
     def __str__(self):
         return self.blood_group
+    
+
+from django.contrib.postgres.fields import ArrayField
+
+class Prescription(models.Model):
+    patient_id = models.CharField(max_length=50)
+    billing_date = models.DateField()
+    total_fee = models.DecimalField(max_digits=10, decimal_places=2)
+    medicines = models.JSONField(default=list)
+
+    def __str__(self):
+        return f"Prescription for {self.patient_id} - {self.billing_date}"

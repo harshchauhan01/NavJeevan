@@ -1,6 +1,8 @@
 from django.http import HttpResponse
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
 from django.template.loader import render_to_string
 from django.conf import settings
 from django.contrib.auth import authenticate, login, logout
@@ -8,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 from xhtml2pdf import pisa
 from .models import *
 from .forms import *
+import json
 
 @login_required
 def home(request):
@@ -132,3 +135,25 @@ def AddOrgan(request):
     else:
         form = OrganForm()
     return render(request, 'AddOrgan.html', {'form': form})
+
+
+def billing(request):
+    if request.method == "POST":
+        form = PrescriptionForm(request.POST)
+        if form.is_valid():
+            prescription = form.save(commit=False)
+
+            medicine_names = request.POST.getlist('medicine_name[]')
+            medicine_frequencies = request.POST.getlist('frequency[]')
+
+            medicines = [{"name": name, "frequency": freq} for name, freq in zip(medicine_names, medicine_frequencies)]
+            prescription.medicines = medicines  
+            prescription.save()
+
+            return redirect("billing")
+
+    else:
+        form = PrescriptionForm()
+
+    return render(request, "Bill.html", {"form": form})
+
