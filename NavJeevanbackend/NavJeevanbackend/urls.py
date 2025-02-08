@@ -21,4 +21,7 @@ from Main.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home,name='home'),
+    path('login/', Login,name='login'),
+    path('upload-details/', upload_details, name='upload_details'),
+    path('patient-records/',patient_records,name='patient_records'),
 ]

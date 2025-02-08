@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>both log in</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static '\css\bl.css' %}">
+</head>
+<body>
+    <div class="bars"><i class="fa-solid fa-bars"></i></div>
+    <div class="sidebar">
+        <div class="logo">🏥 Hospital</div>
+        <ul>
+            <li><a class="details"><i class="fa-solid fa-file-medical"></i> Upload Details</li>
+            <li><i class="fa-solid fa-truck-ramp-box"></i>Available resources</li>
+            <li><a class="records"><i class="fa-solid fa-user"></i> Patient Records</li>
+            <li><i class="fa-solid fa-chart-line"></i> Reports</li>
+            <li><i class="fa-solid fa-sign-out-alt"></i> Logout</li>
+        </ul>
+    </div>
+    <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                document.querySelector(".details").addEventListener("click", function(event) {
+                    event.preventDefault();
+                    window.location.href = "{% url 'upload_details' %}";
+                });
+                document.querySelector(".records").addEventListener("click", function(event) {
+                    event.preventDefault();
+                    window.location.href = "{% url 'patient_records' %}";
+                });
+
+                document.querySelector(".bars").addEventListener('click',()=>{
+                    document.querySelector(".sidebar").classList.toggle('open');
+                })
+                document.querySelector(".sidebar").addEventListener('click', function(event) {
+                    event.stopPropagation(); // Stop click event from propagating to body
+                });
+            });
+    </script>
+</body>
+</html>
