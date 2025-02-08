@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Medicine | NavJeevan{% endblock %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block content %}
+</head>
+<body>
+    <div id = "heading" style="display: flex;">
+        <h2 class="text-center fw-bold p-3 bg-dark text-white rounded" id="HED">
+            <img src="donorf.png" alt="#" style="height: 3rem;">
+             Blood group Inventory & Donor Availability
+            
+        </h2>
+          
+
+        <input type="text" placeholder="Search Blood group" id="Input">
+    </div>
+    <table class="table table-bordered table-striped" id="Table1">
+        <thead class="table-dark">
+            <tr>
+            <th>Organ</th>
+                <th>Availability</th>
+                <th>More Donors Available</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-primary">
+                <td>A+</td>
+                <td>50</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="table-primary">
+                <td>B+</td>
+                <td>12</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="table-primary">
+                <td>AB+</td>
+                <td>150</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="table-warning">
+                <td>A-</td>
+                <td>5</td>
+                <td>No</td>
+            </tr>
+            <tr class="table-warning">
+                <td>O+</td>
+                <td>6</td>
+                <td>No</td>
+            </tr>
+            <tr class="table-danger">
+                <td>B-</td>
+                <td>4</td>
+                <td>No</td>
+            </tr>
+            <tr class="table-danger">
+                <td>Ab-</td>
+                <td>2</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="table-danger">
+                <td>O-</td>
+                <td>3</td>
+                <td>No</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    {% endblock %}
+</body>
+</html>

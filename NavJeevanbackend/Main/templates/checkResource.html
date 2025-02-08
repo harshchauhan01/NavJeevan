@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Check Record | NavJeevan{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block content %}
+</head>
+<body>
+    <div class="check-record-container">
+        <h1 class="title">Check Available Resources</h1>
+        <div class="options">
+            <div class="option">
+                <a href="{%url 'organTable' %}" class="option-link">
+                    <i class="fa-solid fa-lungs"></i>
+                    <h2>Check Organ</h2>
+                </a>
+            </div>
+            <div class="option">
+                <a href="{%url 'BloodTable' %}" class="option-link">
+                    <i class="fa-solid fa-hand-holding-droplet"></i>
+                    <h2>Check Blood</h2>
+                </a>
+            </div>
+            <div class="option">
+                <a href="{%url 'Medicine' %}" class="option-link">
+                    <i class="fa-solid fa-prescription-bottle-medical"></i>
+                    <h2>Check Medicines</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            background: linear-gradient(to bottom, #d6fafa, white);
+            font-family: 'Arial', sans-serif;
+        }
+        .check-record-container {
+            text-align: center;
+            padding: 50px;
+        }
+        .title {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #007d7d;
+        }
+        .options {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            margin-top: 50px;
+        }
+        .option {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 180px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .option:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        .option-link {
+            text-decoration: none;
+            color: #007d7d;
+            font-weight: bold;
+        }
+        .option i {
+            font-size: 50px;
+            color: #007d7d;
+            margin-bottom: 15px;
+        }
+    </style>
+    {% endblock %}
+</body>
+</html>
