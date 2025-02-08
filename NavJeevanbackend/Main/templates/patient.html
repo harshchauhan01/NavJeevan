@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="left-image">
+        <img src="bgimgage.png" alt="Left Side Image">
+    </div>
+    <div class="login-container">
+        <h2>Patient Login</h2>
+        <form action="dashboard.html" method="POST">
+            <label for="patient-id">Patient ID</label>
+            <input type="text" id="patient-id" name="patient-id" placeholder="Enter your Patient ID" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your Password" required  pattern="[a-z0-5]{8,}" title="Password must be 8 characters long and contain only lowercase letters and numbers.">
+
+            <button type="submit">Login</button>
+
+            <div class="extra-links">
+                <a href="forgot-password.html">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

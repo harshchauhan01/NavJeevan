@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .invoice-container {
+    width: 100vw;
+    height: 100vh;
+    padding: 40px;
+    background: url('Finalbg.jpg') no-repeat center center;
+    background-size: cover;
+    background-position: right center; 
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .top-left {
+    display: flex;
+  }
+  
+  .logo {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+  }
+  
+  .hospital-info h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .hospital-info p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  .top-right p {
+    text-align: right;
+    font-weight: 700;
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  .bill-to {
+    margin: 20px 0;
+  }
+  
+  .bill-to p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  tfoot .total-label {
+
+    text-align: right;
+    font-weight: bold;
+    background-color: #f4f4f4;
+  }
+  
+  tfoot .total-value {
+    font-weight: bold;
+    background-color: #f4f4f4;
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  
+  .doctor-id {
+    font-size: 14px;
+  }
+  
+  .signature {
+    text-align: right;
+    font-size: 14px;
+  }
+  
+  .signature-line {
+    margin-top: 10px;
+    width: 200px;
+    height: 1px;
+    background: #000;
+    display: inline-block;
+  }
+  .naam{
+       margin-left: 50px;
+  }
+

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice</title>
+  <link rel="stylesheet" href="bill.css">
+</head>
+<body>
+  <div class="invoice-container">
+    <div class="header">
+      <div class="top-left">
+        <img src="logo.png" alt="Hospital Logo" class="logo">
+        <div class="hospital-info">
+          <h1>Navjeevan</h1>
+          <p>123, Phagwara</p>
+          <p>City: Jalandhar</p>
+          <p>Phone: +1 234 567 890</p>
+          <p>Website: www.navjeevan.com</p>
+        </div>
+      </div>
+     
+      <div class="top-right">
+        <p>Date: <span id="date">09/02/2025</span></p>
+        <p>Invoice #: <span id="invoice">00123</span></p>
+      </div>
+    </div>
+
+    <div class="bill-to">
+      <p><strong>Bill To:</strong> Gajodhar</p>
+      <p><strong>Patient:</strong> 45678</p>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Serial No</th>
+          <th>Description</th>
+          <th>Total Fee</th>
+          <th>Co-Pay</th>
+          <th>Ins Reim</th>
+          <th>Adj</th>
+          <th>Balance (PR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Consultation</td>
+          <td>500</td>
+          <td>50</td>
+          <td>200</td>
+          <td>0</td>
+          <td>250</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Paracetamol</td>
+          <td>100</td>
+          <td>10</td>
+          <td>40</td>
+          <td>0</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Ibuprofen</td>
+          <td>200</td>
+          <td>20</td>
+          <td>80</td>
+          <td>0</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Amoxicillin</td>
+          <td>150</td>
+          <td>15</td>
+          <td>60</td>
+          <td>0</td>
+          <td>75</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Vitamin C Tablets</td>
+          <td>50</td>
+          <td>5</td>
+          <td>20</td>
+          <td>0</td>
+          <td>25</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="6" class="total-label">TOTAL</td>
+          <td class="total-value">500</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="footer">
+      <div class="doctor-id">
+        <p>Doctor ID: 12345</p>
+      </div>
+      <div class="signature">
+        <p>Doctor's Signature:</p>
+        <div class="signature-line"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
