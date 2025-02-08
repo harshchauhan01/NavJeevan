@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" href="{% static '\css\nav.css' %}">
+    <link rel="stylesheet" href="{% static '\css\home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        .sidebar {
+            position: fixed;
+            width: 250px;
+            height: 100vh;
+            background: #bdffff;
+            color: black;
+            left: -250px;
+            top: 0;
+            margin-top: 72px;
+            padding-top: 20px;
+            transition: left 0.3s ease;
+        }
+        
+        .sidebar.open {
+            left: 0;
+        }
+        
+        .sidebar .logo {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .sidebar ul li {
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .sidebar ul li:hover {
+            background: white;
+            color: black;
+        }
+        
+        .sidebar ul li i {
+            font-size: 18px;
+        }
+        
+        .bars i{
+            font-size: 24px;
+            
+        }
+        
+        .bars {
+            position: absolute;
+            top: 80px; 
+            left: 20px;
+            font-size: 30px;
+            z-index: 10;
+            cursor: pointer;
+            width: 39px;
+            height: 39px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #bdffff;
+        }
+
+    </style>
+
+</head>
+<body>
+    <nav>
+        <div class="navdiv">
+            <div class="navFst">
+                <div class="logo"><img src="{%static '\images\logo.png'%}" alt=""></div>
+                <div class="navbar">
+                    <p><a href="">HOME</a></p>
+                    <p><a href="">ABOUT</a></p>
+                    <p><a href="">CONTACT</a></p>
+                </div>
+            </div>
+            <div class="navSec">
+                <button>
+                    <span>Login</span>
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 74 74"
+                    height="34"
+                    width="34"
+                    >
+                    <circle stroke-width="3" stroke="black" r="35.5" cy="37" cx="37"></circle>
+                    <path
+                        fill="black"
+                        d="M25 35.5C24.1716 35.5 23.5 36.1716 23.5 37C23.5 37.8284 24.1716 38.5 25 38.5V35.5ZM49.0607 38.0607C49.6464 37.4749 49.6464 36.5251 49.0607 35.9393L39.5147 26.3934C38.9289 25.8076 37.9792 25.8076 37.3934 26.3934C36.8076 26.9792 36.8076 27.9289 37.3934 28.5147L45.8787 37L37.3934 45.4853C36.8076 46.0711 36.8076 47.0208 37.3934 47.6066C37.9792 48.1924 38.9289 48.1924 39.5147 47.6066L49.0607 38.0607ZM25 38.5L48 38.5V35.5L25 35.5V38.5Z"
+                    ></path>
+                    </svg>
+                </button>
+  
+            </div>
+        </div>
+    </nav>
+    <div class="bars"><i class="fa-solid fa-bars"></i></div>
+    <div class="sidebar">
+        <div class="logo">🏥 Hospital</div>
+        <ul>
+            <li><a class="details"><i class="fa-solid fa-file-medical"></i> Upload Details</li>
+            <li><i class="fa-solid fa-truck-ramp-box"></i>Available resources</li>
+            <li><a class="records"><i class="fa-solid fa-user" style="padding-right: 20px;"></i>Add Patient Records</li>
+            <li><i class="fa-solid fa-chart-line"></i> Reports</li>
+            <li><i class="fa-solid fa-sign-out-alt"></i> Logout</li>
+        </ul>
+    </div>
+    
+
+    
+        {% block content %}
+
+        {% endblock %}
+    
+
+    
+    <footer>
+        
+        
+    </footer>
+
+    <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                document.querySelector(".details").addEventListener("click", function(event) {
+                    event.preventDefault();
+                    window.location.href = "{% url 'patientrecord' %}";
+                });
+                document.querySelector(".records").addEventListener("click", function(event) {
+                    event.preventDefault();
+                    window.location.href = "{% url 'patientrecord' %}";
+                });
+
+                document.querySelector(".bars").addEventListener('click',()=>{
+                    document.querySelector(".sidebar").classList.toggle('open');
+                })
+                document.querySelector(".sidebar").addEventListener('click', function(event) {
+                    event.stopPropagation(); // Stop click event from propagating to body
+                });
+            });
+    </script>
+
+
+</body>
+</html>

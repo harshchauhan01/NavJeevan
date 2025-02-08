@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Add Patient Record | NavJeevan{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block content %}
+    <link rel="stylesheet" href="{% static 'css/patientrecord.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .download-btn {
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .download-btn:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        img {
+            max-width: 150px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="header" style="margin: 20px;">
+        <h2>Patient Report</h2>
+        <a href="{% url 'download_patient_pdf' patient.patent_id %}" class="download-btn">Download Report</a>
+    </div>
+
+    <table>
+        <tr>
+            <th>Patient ID:</th>
+            <td>{{ patient.patent_id }}</td>
+        </tr>
+        {% if patient.photo %}
+        <tr>
+            <th>Patient Photo:</th>
+            <td><img src="{{ patient.photo.url }}" alt="Patient Photo"></td>
+        </tr>
+        {% endif %}
+        <tr>
+            <th>Patient Name:</th>
+            <td>{{ patient.patent_title }}</td>
+        </tr>
+        <tr>
+            <th>Age:</th>
+            <td>{{ patient.patent_age }}</td>
+        </tr>
+        <tr>
+            <th>Gender:</th>
+            <td>{{ patient.patent_gender }}</td>
+        </tr>
+        <tr>
+            <th>Reason Of Visit:</th>
+            <td>{{ patient.inventor_name }}</td>
+        </tr>
+        <tr>
+            <th>Phone Number:</th>
+            <td>{{ patient.patent_number }}</td>
+        </tr>
+        <tr>
+            <th>Address:</th>
+            <td>{{ patient.address }}</td>
+        </tr>
+        <tr>
+            <th>Form Fill Date:</th>
+            <td>{{ patient.filing_date }}</td>
+        </tr>
+        <tr>
+            <th>Bed Allotted:</th>
+            <td>{{ patient.bed_allotted }}</td>
+        </tr>
+        <tr>
+            <th>Bed/Room Number:</th>
+            <td>{{ patient.bed_number }}</td>
+        </tr>
+        <tr>
+            <th>ICU:</th>
+            <td>{{ patient.icu }}</td>
+        </tr>
+        <tr>
+            <th>Status:</th>
+            <td>{{ patient.patent_status }}</td>
+        </tr>
+        {% if patient.billing_date %}
+        <tr>
+            <th>Billing Date:</th>
+            <td>{{ patient.billing_date }}</td>
+        </tr>
+        
+        {% endif %}
+        <tr>
+            <th>Doctor Name:</th>
+            <td>{{ patient.patent_doctor }}</td>
+        </tr>
+        {% if doctor %}
+        <tr>
+            <th>Doctor Sign:</th>
+            <!-- <td>{{ patient.doctor.doctor_sign_photo }}</td> -->
+            <td><img src="{{ patient.doctor.doctor_sign_photo.url }}" alt="Doctor Photo"></td>
+        </tr>
+        {% endif %}
+    </table>
+
+    {% endblock %}
+</body>
+</html>
