@@ -1,0 +1,19 @@
+#Input{
+        border: 2px solid black;
+        width: 15rem;
+        height: 3rem;
+        border-radius: 10px;
+        font-family: 'Times New Roman', Times, serif;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        margin-left: 1rem;
+
+}
+#HED{
+        width: 75%;
+        padding-right: 2rem;
+}
+#Table1 tr td,
+#Table1 tr th {
+    height: 5rem; /* Set height for table cells */
+}

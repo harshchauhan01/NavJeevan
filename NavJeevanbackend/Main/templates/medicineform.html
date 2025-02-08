@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Add Patient Record | NavJeevan{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block content %}
+    <link rel="stylesheet" href="medicineform.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Enter Patient Record</h1>
+
+        
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <form method="POST" action="{% url 'patientrecord' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+
+            <div class="form-group">
+                <label for="patent_id">Medicine Name:</label>
+                <input type="text" id="patent_id" name="patent_id" required>
+            </div>
+
+            <div class="form-group">
+                <label for="patent_title`">Patient Name:</label>
+                <input type="text" id="patent_title" name="patent_title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="patent_age">Patient Age:</label>
+                <input type="text" id="patent_age" name="patent_age" required>
+            </div>
+            <div class="form-group">
+                <label for="patent_gender">Gender:</label>
+                <input type="text" id="patent_gender" name="patent_gender" required>
+            </div>
+
+            <div class="form-group">
+                <label for="inventor_name">Reason Of Visit</label>
+                <input type="text" id="inventor_name" name="inventor_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="patent_number">Patient Phone Number:</label>
+                <input type="text" id="patent_number" name="patent_number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="filing_date">Form Fill Date:</label>
+                <input type="date" id="filing_date" name="filing_date" required>
+            </div>
+
+            
+
+            <div class="form-group">
+                <label for="bed_allotted">Is Bed Allotted?</label>
+                <select id="bed_allotted" name="bed_allotted" required>
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="bed_details" style="display:none;">
+                <label for="bed_number">Bed Number / Room Number:</label>
+                <input type="text" id="bed_number" name="bed_number">
+            </div>
+
+            <div class="form-group" id="icu_option" style="display:none;">
+                <label for="icu">Is it an ICU?</label>
+                <select id="icu" name="icu">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="patent_status">Status:</label>
+                <select id="patent_status" name="patent_status" required>
+                    <option value="Not Discharged">Not Discharged</option>
+                    <option value="Discharged">Discharged</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="billing_date_group" style="display:none;">
+                <label for="billing_date">Billing Date:</label>
+                <input type="date" id="billing_date" name="billing_date">
+            </div>
+
+            
+
+            <div class="form-group">
+                <label for="photo">Patient Photo:</label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Add Patient Record</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('bed_allotted').addEventListener('change', function() {
+            var bedDetails = document.getElementById('bed_details');
+            var icuOption = document.getElementById('icu_option');
+            if (this.value === 'yes') {
+                bedDetails.style.display = 'block';
+                icuOption.style.display = 'block';
+            } else {
+                bedDetails.style.display = 'none';
+                icuOption.style.display = 'none';
+            }
+        });
+
+        document.getElementById('patent_status').addEventListener('change', function() {
+            var billingDateGroup = document.getElementById('billing_date_group');
+            if (this.value === 'Discharged') {
+                billingDateGroup.style.display = 'block';
+            } else {
+                billingDateGroup.style.display = 'none';
+            }
+        });
+    </script>
+
+    {% endblock %}
+
+</body>
+</html>
