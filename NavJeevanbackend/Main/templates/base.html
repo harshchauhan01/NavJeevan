@@ -16,7 +16,7 @@
             <div class="navFst">
                 <div class="logo"><img src="{%static '\images\logo.png'%}" alt=""></div>
                 {% if user.is_authenticated %}
-                <div class="navbar">
+                <div class="navbar" style="width: 500px;">
                     <p><a href="{% url 'home' %}">HOME</a></p>
                     <p><a href="{% url 'CheckRecord' %}">Patient Record</a></p>
                     <p><a href="{% url 'checkResource' %}">Check Resources</a></p>
